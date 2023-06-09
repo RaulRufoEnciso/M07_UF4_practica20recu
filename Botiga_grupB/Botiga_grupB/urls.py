@@ -19,4 +19,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('botiga/cataleg/', include("cataleg.urls")),
+<<<<<<< Updated upstream:Botiga_grupB/urls.py
+=======
+    path('botiga/carreto/', include("carreto.urls")),
+>>>>>>> Stashed changes:Botiga_grupB/Botiga_grupB/urls.py
 ]
