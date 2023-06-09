@@ -51,3 +51,12 @@ def updateProductoInCarrito(request, pk):
     return Response("Prueba a modificar los campos de Cantidad y Comprado")
 
 # Editar los productos en en carrito para modificar cantidad y estado de vendido
+
+@api_view(['GET'])
+def checkIfCompradoIsTrue(request, pk):
+    comprado = Carrito.objects.get(id=pk).comprado
+    if comprado != True:
+        return Response("El articulo no esta comprado")
+    return Response("El articulo se compro correctamente")
+
+# Editar los productos en en carrito para modificar cantidad y estado de vendido
