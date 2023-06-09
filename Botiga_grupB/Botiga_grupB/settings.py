@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "cataleg.apps.CatalegConfig",
+<<<<<<< Updated upstream:Botiga_grupB/settings.py
+=======
+    "carreto.apps.CarretoConfig",
+>>>>>>> Stashed changes:Botiga_grupB/Botiga_grupB/settings.py
 
 ]
 
