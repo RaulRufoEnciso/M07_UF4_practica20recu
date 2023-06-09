@@ -43,3 +43,11 @@ def updateProducto(request, pk):
     return Response(serializer.data)
 
 # Editar los productos en la tabla del catalogo
+
+@api_view(['DELETE'])
+def deleteProducto(request, pk):
+    product = Productos.objects.get(id=pk)
+    product.delete()
+    return Response("Producto eliminado del catalogo con exito")
+
+# Eliminar los productos en la tabla del catalogo
