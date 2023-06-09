@@ -21,3 +21,19 @@ def showAllProductsInCarrito(request):
     serializer = CarritoSerializer(products, many=True)
     return Response(serializer.data)
 # Ver productos del carro
+
+@api_view(['DELETE'])
+def deleteProductoInCarritoById(request, pk):
+    product = Carrito.objects.get(id=pk)
+    product.delete()
+    return Response("Producto eliminado del carrito con exito")
+
+# Elimina un producto del carrito
+
+@api_view(['DELETE'])
+def deleteAllProductosInCarrito(request):
+    product = Carrito.objects.all()
+    product.delete()
+    return Response("Productos eliminados del carrito con exito")
+
+# Elimina todos los productos del carrito
