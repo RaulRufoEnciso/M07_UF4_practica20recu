@@ -21,3 +21,13 @@ def showProductoById(request, pk):
 # Mostar el producto en el carrito por Id
 
 
+@api_view(['POST'])
+def addProducto(request):
+    serializer = ProductosSerializer(data=request.data, many=False)
+
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+# Crear los productos en la tabla del carrito
+
