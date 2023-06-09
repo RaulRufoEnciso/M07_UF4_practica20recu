@@ -37,3 +37,17 @@ def deleteAllProductosInCarrito(request):
     return Response("Productos eliminados del carrito con exito")
 
 # Elimina todos los productos del carrito
+
+@api_view(['GET','POST'])
+def updateProductoInCarrito(request, pk):
+    product = Carrito.objects.get(id=pk)
+    serializer = CarritoSerializer(instance=product, data=request.data, many=False)
+
+    if not serializer.is_valid():
+        return Response("No se pudo modificar, prueba a modificar los campos de Cantidad y Comprado")
+    else:
+        serializer.save()
+        return Response(serializer.data)
+    return Response("Prueba a modificar los campos de Cantidad y Comprado")
+
+# Editar los productos en en carrito para modificar cantidad y estado de vendido
