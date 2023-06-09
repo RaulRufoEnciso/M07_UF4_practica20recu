@@ -31,3 +31,15 @@ def addProducto(request):
 
 # Crear los productos en la tabla del carrito
 
+
+@api_view(['POST'])
+def updateProducto(request, pk):
+    product = Productos.objects.get(id=pk)
+
+    serializer = ProductosSerializer(instance=product, data=request.data, many=False)
+
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+# Editar los productos en la tabla del catalogo
